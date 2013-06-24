@@ -11,16 +11,24 @@ namespace AppHarborBuild.Controllers
     public class GeckoController : ApiController
     {
         // GET api/gecko
-        public IEnumerable<DataItem> Get()
+        public HttpResponseMessage Get()
         {
-            var items = new List<DataItem>() 
-                { 
-                    new DataItem(){ Text = "Textzeile 1", Type = DataItemType.None },
-                    new DataItem(){ Text = "Textzeile 2", Type = DataItemType.Info },
-                    new DataItem(){ Text = "Textzeile 3", Type = DataItemType.Alert }
+            try
+            {
+               var retVal = new GeckoItems();
+                var items = new List<DataItem>() { 
+                    new DataItem(){ Text = "Text 1", Type = DataItemType.None },
+                    new DataItem(){ Text = "Text 1", Type = DataItemType.Info },
+                    new DataItem(){ Text = "Text 1", Type = DataItemType.Alert }
                 };
+                retVal.DataItems = items.ToArray();
 
-            return items;
+                return this.Request.CreateResponse<GeckoItems>(HttpStatusCode.OK, retVal);
+            }
+            catch (Exception ex)
+            {
+                return this.Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex);
+            }
         }
 
         // GET api/gecko/5
