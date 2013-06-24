@@ -13,7 +13,8 @@ namespace AppHarborBuild.Controllers
         // GET api/gecko
         public IEnumerable<DataItem> Get()
         {
-            var items = new List<DataItem>() { 
+            var items = new List<DataItem>() 
+                { 
                     new DataItem(){ Text = "Textzeile 1", Type = DataItemType.None },
                     new DataItem(){ Text = "Textzeile 2", Type = DataItemType.Info },
                     new DataItem(){ Text = "Textzeile 3", Type = DataItemType.Alert }
