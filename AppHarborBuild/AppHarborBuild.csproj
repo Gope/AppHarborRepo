@@ -39,6 +39,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Geckonet.Core">
+      <HintPath>..\packages\geckonet.1.0.4896.17130\lib\net45\Geckonet.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Mindscape.Raygun4Net">
       <HintPath>..\packages\Mindscape.Raygun4Net.1.0.5\lib\net35\Mindscape.Raygun4Net.dll</HintPath>
