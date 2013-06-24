@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>geckonet</id>
+    <version>1.0.4896.17130</version>
+    <title>Geckoboard.Net</title>
+    <authors>Kori Francis</authors>
+    <owners>Kori Francis</owners>
+    <projectUrl>https://github.com/kfrancis/geckonet</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A comprehensive C# API wrapper library for accessing Geckoboard.com, using XML or JSON to read/write widget data easily using strong-typed models</description>
+    <releaseNotes />
+    <copyright>Copyright 2013</copyright>
+    <language />
+    <tags>Geckoboard Gecko</tags>
+    <dependencies>
+      <dependency id="Microsoft.AspNet.WebApi" version="4.0.20710.0" />
+    </dependencies>
+    <references>
+      <reference file="Geckonet.Core.dll" />
+    </references>
+  </metadata>
+</package>

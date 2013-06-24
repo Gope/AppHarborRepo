@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Mindscape.Raygun4Net;
 
 namespace AppHarborBuild.Controllers
 {
@@ -36,8 +38,15 @@ namespace AppHarborBuild.Controllers
         }
 
         // POST api/emails
-        public void Post(Email email)
+        public HttpResponseMessage Post(Email email)
         {
+            if (ModelState.IsValid)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+
+            new RaygunClient("6Zq4x7UB+5mdlq8eigy0Ow==").Send(new ArgumentException("Email was invalid", "email"));
+            return Request.CreateResponse(HttpStatusCode.InternalServerError);
         }
 
         // PUT api/emails/5
@@ -53,7 +62,9 @@ namespace AppHarborBuild.Controllers
 
     public class Email
     {
+        [EmailAddress]
         public string From { get; set; }
+         [EmailAddress]
         public string To { get; set; }
         public string Subject { get; set; }
     }
